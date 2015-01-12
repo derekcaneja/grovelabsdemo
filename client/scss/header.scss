@@ -1,0 +1,70 @@
+/* SCSS Variable Declarations */
+
+$orange       : #FF8F12;
+$headerHeight : 56px;
+
+/* SCSS Start */
+
+header {
+	p {
+		position: absolute;
+
+		top: 0;
+		left: 0;
+
+		z-index: 0;
+
+		width  : 100%;
+		height : $headerHeight;
+
+		min-width: 200px;
+
+		float   : right;
+		display : inline-block;
+
+		text-align: center;
+
+		&:hover {
+			color: #FFFFFF;
+		}
+	}
+
+	svg {
+		position: absolute;
+
+		top   : 55%;
+		left  : 50%;
+
+		margin: -16px 0 0 -36px;
+		
+		width  : 72px;
+		height : 16px;
+
+		fill: $orange;
+
+		&:hover {
+			fill: darken($orange, 10%);
+		}
+	}
+
+	.button-menu {
+		position: absolute;
+		
+		color: #FFFFFF;
+		background: $orange;
+		
+		z-index: 1;
+
+		height : 100%;
+		width  : $headerHeight;
+		
+		min-width : 36px;
+		max-width : 56px;
+
+		font-size: 20px;
+
+		&:active {
+			background: darken($orange, 10%);
+		}
+	}
+}

@@ -1,0 +1,89 @@
+/* SCSS Variable Declarations */
+
+$orange       : #FF8F12;
+$green		  : #0DB752;
+$sidebarWidth : 70vw;
+
+/* SCSS Start */
+
+sidebar {
+	svg {		
+		width: 20%;
+		
+		fill: #FFFFFF;
+	}
+
+	.sidebar-logo {
+		padding: 30px 0;
+
+		width: 100%;
+
+		text-align: center;
+	}
+
+	h1 {		
+		font-size      : 14px;
+		font-weight    : 100;
+		letter-spacing : 2px;
+    	text-transform : uppercase;
+
+    	padding: 5px 10px;
+
+		background: darken($orange, 10%);
+
+		color: rgba(#FFFFFF, 0.9);
+
+		i {
+			float: right;
+		}
+
+		&.sidebar-info {
+			position: absolute;
+			
+			bottom: 0;
+
+			width: $sidebarWidth;
+		}
+	}
+
+	ul {
+		background: #FFFFFF;
+		box-shadow: inset 0 1px 2px 1px rgba(0, 0, 0, 0.5);
+
+		li {
+			padding: 8px;
+			color: $orange;
+
+			font-weight: 600;
+
+			border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+
+
+			&:last-of-type {
+				border-bottom: none;
+			}
+
+			&:active {
+				background: rgba(0, 0, 0, 0.25);
+					color: darken($green, 20%);
+
+				i {
+					color: darken($green, 20%);
+				}
+			}
+				color: $green;
+
+			i {
+				float: right;
+
+				color: $green;
+				margin-top: 3px;
+				font-size: 12px !important;
+			}
+		}
+
+		&.sidebar-scrollable {
+			overflow: scroll;
+		}
+	}
+}

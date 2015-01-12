@@ -1,0 +1,183 @@
+/* SCSS Variable Declarations */
+
+$orange       : #FF8F12;
+$green		  : #0DB752;
+$headerHeight : 56px;
+$sidebarWidth : 70vw;
+
+/* SCSS Start */
+
+content {
+	.content-top {
+		position: relative;
+
+		padding-top: $headerHeight;
+
+		height : 100vh;
+
+		background-image: url('http://learn.uvm.edu/foodsystemsblog/wordpress/wp-content/uploads/asparagus.jpg');
+		background-repeat: no-repeat;
+		background-size: 400px;
+		background-position: center 30vh;
+			
+		h1 {
+			padding: 40px;
+			width: 100%;
+
+			text-align: center;
+
+			color: rgba(0, 0, 0, 0.5);
+		}
+
+		.content-bar-container {
+			position: absolute;
+
+			bottom : $headerHeight;
+
+			width  : 100%;
+			height : 96px;
+
+			.bar-orange {
+				width: 100%;
+				height: 6px;
+
+				background: $orange;
+			}
+
+			.bar-spacer {
+				width: 100%;
+				height: 6px;
+			}
+		}
+
+		.content-bottom-bar {
+			position: absolute;
+
+			bottom : 0;
+			left   : 0;		
+			
+
+			width: 100%;
+			height: $headerHeight;
+
+			min-height : 36px;
+			max-height : 56px;
+			
+			background: #FF8F12;
+
+			.content-status {
+				padding: 8px 16px;
+				float: left;
+
+				color: #FFFFFF;
+
+				font-size: 16px;
+
+				span {
+					font-size: 36px;
+				}
+			}
+
+			button {
+				color: #FFFFFF;
+				float: right;
+				width: $headerHeight;
+				height: $headerHeight;
+				font-size: 20px;
+
+				i {
+					transition: all 400ms ease-in-out;
+
+					transform: rotate(0deg);
+				}
+
+				&:active {
+					background: rgba(0, 0, 0, 0.1);
+				}
+
+				&.active {
+					i {
+						transition: all 400ms ease-in-out;
+
+						transform: rotate(-180deg);
+					}
+				}
+			}
+		}
+	}
+
+	.content-bottom {
+		position: relative;
+
+		background: #333333;
+
+		width: 101vw;
+		height: 100vh;
+
+		padding-top: 30px;
+		padding-bottom: $headerHeight * 2;
+
+		box-shadow: inset 0 1px 2px 1px rgba(0, 0, 0, 0.5);
+
+		.content-button-container {
+
+			margin: 0 auto;
+			
+			width: 300px;
+			height: 30px;
+			
+			button {
+				float: left;
+				font-weight: 600;
+
+				width: 33%;
+				height: 100%;
+
+				color: $orange;
+
+				border-top: $orange 2px solid;
+				border-bottom: $orange 2px solid;
+
+				&:first-of-type {
+					border-top-left-radius    : 5px;
+					border-bottom-left-radius : 5px;
+
+					border: $orange 2px solid;
+				}
+
+				&:last-of-type {
+					border-top-right-radius    : 5px;
+					border-bottom-right-radius : 5px;
+					border: $orange 2px solid;
+				}
+
+				&.active {
+					color: #FFFFFF;
+					background: $orange;
+				}
+			}
+		}
+
+		.content-bottom-container {
+			position: relative;
+			width: 90vw;
+			height: 60%;
+			border: $orange 2px solid;
+			border-radius: 5px;
+
+			margin: 20px auto;
+
+			div {
+				display: none;
+
+				&.active {
+					display: inline-block;
+				}
+			}
+
+			.content-nutrition-item {
+
+			}
+		}
+	}
+}
