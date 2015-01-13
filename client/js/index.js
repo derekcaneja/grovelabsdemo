@@ -2,10 +2,6 @@ if (Meteor.isClient) {
     Session.setDefault('sidebar'         , false);
     Session.setDefault('content-more'    , false);
 
-    Template.index.helpers({
-
-    });
-
     Template.index.events({
         'click .dimmer': function () {
             Session.set('sidebar', !Session.get('sidebar'));

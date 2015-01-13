@@ -1,5 +1,5 @@
 <template name="content">
-	<div class="content-top">
+	<div class="content-top" style="background-image:url('{{image}}')">
 		<h1>{{name}}</h1>
 		<div class="content-bar-container">
 			<div class="bar-orange"></div>
@@ -21,7 +21,7 @@
 		</div>
 
 		<div class="content-bottom-bar">
-			<div class="content-status"><span>8</span> of 8 days left to harvest</div>
+			<div class="content-status">{{{state}}}</div>
 			
 			<button><i class="fa fa-arrow-down"></i></button>
 		</div>
@@ -33,15 +33,84 @@
 			<button data-content="background">BACKGROUND</button>
 			<button data-content="nurtition">NUTRITION</button>
 		</div>
+
 		<div class="content-bottom-container">
-			<div class="active" data-content="my-grove">MY GROVE</div>
-			<div  data-content="background">BACKGROUND</div>
+			<div class="active" data-content="my-grove">
+				<table>
+					<tr>
+						<td>
+							<div class="content-stats-item">
+								<div class="light"></div>
+								LIGHT CYCLE
+							</div>
+						</td>
+						<td>
+							<div class="content-stats-item-content">
+								<span>{{light_cycle}}</span> hours on
+							</div>
+						</td>
+
+						<td>
+							<button class="take-picture">TAKE PICTURE</button>
+						</td>
+					</tr>	
+					<tr>
+						<td>
+							<div class="content-stats-item">
+								<div class="water"></div>
+								WATER USAGE
+							</div>
+						</td>
+						<td>
+							<div class="content-stats-item-content">
+								<span>{{water_usage}}</span> gallons
+							</div>
+						</td>
+
+						<td>
+							<button class="view-more">VIEW MORE</button>
+						</td>
+					</tr>
+					<tr>
+						<td>		
+							<div class="content-stats-item">
+								<div class="power"></div>
+								POWER USAGE
+							</div>
+						</td>
+						<td>
+							<div class="content-stats-item-content">
+								<span>{{power_usage}}</span> kWh
+							</div>
+						</td>
+
+						<td>
+							<button class="request-help">REQUEST HELP</button>
+						</td>
+					</tr>
+				</table>
+			</div>
+			
+			<div  data-content="background">
+				<h2>{{name}}</h2>
+				<h3>({{pronunciation}})</h3>
+
+				<p>{{{background_info}}}</p>
+			</div>
 			
 			<div  data-content="nurtition">
-				<div class="content-nutrition-item"></div>
-				<div class="content-nutrition-item"></div>
-				<div class="content-nutrition-item"></div>
-				<div class="content-nutrition-item"></div>
+				<div class="content-nutrition-item">
+					<div class="serving">{{{serving}}}</div>
+
+					PER SERVING
+				</div>
+				<div class="content-nutrition-item">
+					<div class="vitamins">{{{vitamins}}}</div>
+
+					HIGH IN VITAMINS
+				</div>
+				
+				{{{other_nutrition}}}
 			</div>
 		</div>
 	</div>

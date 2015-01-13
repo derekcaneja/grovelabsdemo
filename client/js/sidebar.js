@@ -1,7 +1,9 @@
 if(Meteor.isClient) {
+    var myPlants = ['W7T8ZtSoCNJzna84b', 'QTiqZbJ7DcBrAHWsy'];
+
     Template.sidebar.helpers({
         myPlantList: function() {
-            var plants = PlantsList.find().fetch();
+            var plants = PlantsList.find({ _id: { $in: myPlants } }).fetch();
             
             var toReturn = '';
 

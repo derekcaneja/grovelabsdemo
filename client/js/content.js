@@ -1,22 +1,85 @@
 if(Meteor.isClient) {
 	Template.content.helpers({
 		name: function() {
-			var plant = Session.get('plant') || PlantsList.find().fetch()[0];
+			var plant = Session.get('plant') || PlantsList.find({ _id: 'W7T8ZtSoCNJzna84b' }).fetch()[0];
 			
 			return plant.name.toUpperCase();
 		},
 
-		days_left: function() {
-			var plant = Session.get('plant') || PlantsList.find().fetch()[0];
+        pronunciation: function() {
+            var plant = Session.get('plant') || PlantsList.find({ _id: 'W7T8ZtSoCNJzna84b' }).fetch()[0];
+            
+            return plant.pronunciation;
+        },
 
-			return plant.stages[plant.stage].length;
-		},
+        background_info: function() {
+            var plant = Session.get('plant') || PlantsList.find({ _id: 'W7T8ZtSoCNJzna84b' }).fetch()[0];
+            
+            return plant.background;
+        },
 
-		days_total: function() {
-			var plant = Session.get('plant') || PlantsList.find().fetch()[0];
+        image: function() {
+            var plant = Session.get('plant') || PlantsList.find({ _id: 'W7T8ZtSoCNJzna84b' }).fetch()[0];
+            
+            return plant.img;
+        },
 
-			return plant.stages[plant.stage].length;
-		}
+        state: function() {
+            var plant = Session.get('plant') || PlantsList.find({ _id: 'W7T8ZtSoCNJzna84b' }).fetch()[0];
+
+            var state = (plant.state == "harvest") ? 'to harvest' : 'until harvest';
+
+            return '<span>' + plant.states[plant.state].days_left + '</span> of ' + plant.states[plant.state].days_total + ' days left ' + state;
+        },
+
+        serving: function() {
+            var plant = Session.get('plant') || PlantsList.find({ _id: 'W7T8ZtSoCNJzna84b' }).fetch()[0];
+
+            return '<span>' + plant.nutrition.serving + '</span>oz';
+        },
+
+        vitamins: function() {
+            var plant = Session.get('plant') || PlantsList.find({ _id: 'W7T8ZtSoCNJzna84b' }).fetch()[0];
+
+            var toReturn = '';
+
+            plant.nutrition.vitamins.map(function(vitamin) {
+                if(!toReturn.length) toReturn += vitamin;
+                else                 toReturn += ', ' + vitamin;
+            });
+
+            return toReturn;
+        },
+
+        other_nutrition: function() {
+            var plant = Session.get('plant') || PlantsList.find().fetch({ _id: 'W7T8ZtSoCNJzna84b' })[0];
+
+            var toReturn = '';
+
+            plant.nutrition.other.map(function(nutrient) {
+                toReturn += '<div class="content-nutrition-item"><div class="' + nutrient +'"></div>HIGH IN ' + nutrient.toUpperCase() + '</div>';
+            });
+
+            return toReturn;
+        },
+
+        light_cycle: function() {
+            var plant = Session.get('plant') || PlantsList.find({ _id: 'W7T8ZtSoCNJzna84b' }).fetch()[0];
+
+            return plant.states[plant.state].lights;
+        },
+
+        water_usage: function() {
+            var plant = Session.get('plant') || PlantsList.find({ _id: 'W7T8ZtSoCNJzna84b' }).fetch()[0];
+
+            return plant.water;
+        },
+
+        power_usage: function() {
+            var plant = Session.get('plant') || PlantsList.find({ _id: 'W7T8ZtSoCNJzna84b' }).fetch()[0];
+
+            return plant.power;
+        }
 	});
 
 	Template.content.events({
@@ -54,7 +117,7 @@ if(Meteor.isClient) {
 
             $('.content-bottom-container div').each(function() {
                 $(this).removeClass('active');
-                
+
                 if($(this).data('content') == $(event.currentTarget).data('content')) $(this).addClass('active');
             });
         }
