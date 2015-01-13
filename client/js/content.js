@@ -52,7 +52,7 @@ if(Meteor.isClient) {
         },
 
         other_nutrition: function() {
-            var plant = Session.get('plant') || PlantsList.find().fetch({ _id: 'W7T8ZtSoCNJzna84b' })[0];
+            var plant = Session.get('plant') || PlantsList.find({ _id: 'W7T8ZtSoCNJzna84b' }).fetch()[0];
 
             var toReturn = '';
 
