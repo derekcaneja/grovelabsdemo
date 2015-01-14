@@ -1,31 +1,31 @@
 if(Meteor.isClient) {
 	Template.content.helpers({
 		name: function() {
-			var plant = Session.get('plant') || PlantsList.find({ _id: 'W7T8ZtSoCNJzna84b' }).fetch()[0];
+			var plant = Session.get('plant') || PlantsList.find({ name: "Asparagus" }).fetch()[0];
 			
 			return plant.name.toUpperCase();
 		},
 
         pronunciation: function() {
-            var plant = Session.get('plant') || PlantsList.find({ _id: 'W7T8ZtSoCNJzna84b' }).fetch()[0];
+            var plant = Session.get('plant') || PlantsList.find({ name: "Asparagus" }).fetch()[0];
             
             return plant.pronunciation;
         },
 
         background_info: function() {
-            var plant = Session.get('plant') || PlantsList.find({ _id: 'W7T8ZtSoCNJzna84b' }).fetch()[0];
+            var plant = Session.get('plant') || PlantsList.find({ name: "Asparagus" }).fetch()[0];
             
             return plant.background;
         },
 
         image: function() {
-            var plant = Session.get('plant') || PlantsList.find({ _id: 'W7T8ZtSoCNJzna84b' }).fetch()[0];
+            var plant = Session.get('plant') || PlantsList.find({ name: "Asparagus" }).fetch()[0];
             
             return plant.img;
         },
 
         state: function() {
-            var plant = Session.get('plant') || PlantsList.find({ _id: 'W7T8ZtSoCNJzna84b' }).fetch()[0];
+            var plant = Session.get('plant') || PlantsList.find({ name: "Asparagus" }).fetch()[0];
 
             var state = (plant.state == "harvest") ? 'to harvest' : 'until harvest';
 
@@ -33,13 +33,13 @@ if(Meteor.isClient) {
         },
 
         serving: function() {
-            var plant = Session.get('plant') || PlantsList.find({ _id: 'W7T8ZtSoCNJzna84b' }).fetch()[0];
+            var plant = Session.get('plant') || PlantsList.find({ name: "Asparagus" }).fetch()[0];
 
             return '<span>' + plant.nutrition.serving + '</span>oz';
         },
 
         vitamins: function() {
-            var plant = Session.get('plant') || PlantsList.find({ _id: 'W7T8ZtSoCNJzna84b' }).fetch()[0];
+            var plant = Session.get('plant') || PlantsList.find({ name: "Asparagus" }).fetch()[0];
 
             var toReturn = '';
 
@@ -52,7 +52,7 @@ if(Meteor.isClient) {
         },
 
         other_nutrition: function() {
-            var plant = Session.get('plant') || PlantsList.find({ _id: 'W7T8ZtSoCNJzna84b' }).fetch()[0];
+            var plant = Session.get('plant') || PlantsList.find({ name: "Asparagus" }).fetch()[0];
 
             var toReturn = '';
 
@@ -64,19 +64,19 @@ if(Meteor.isClient) {
         },
 
         light_cycle: function() {
-            var plant = Session.get('plant') || PlantsList.find({ _id: 'W7T8ZtSoCNJzna84b' }).fetch()[0];
+            var plant = Session.get('plant') || PlantsList.find({ name: "Asparagus" }).fetch()[0];
 
             return plant.states[plant.state].lights;
         },
 
         water_usage: function() {
-            var plant = Session.get('plant') || PlantsList.find({ _id: 'W7T8ZtSoCNJzna84b' }).fetch()[0];
+            var plant = Session.get('plant') || PlantsList.find({ name: "Asparagus" }).fetch()[0];
 
             return plant.water;
         },
 
         power_usage: function() {
-            var plant = Session.get('plant') || PlantsList.find({ _id: 'W7T8ZtSoCNJzna84b' }).fetch()[0];
+            var plant = Session.get('plant') || PlantsList.find({ name: "Asparagus" }).fetch()[0];
 
             return plant.power;
         }
@@ -88,7 +88,7 @@ if(Meteor.isClient) {
 
             if(Session.get('content-more')) {
                 $('content').velocity({ 
-                    top: -$('.content-top').height() + 56 + 96
+                    top: -$('.content-top').height() + 78
                 }, {
                     duration: 400,
                     easing: 'ease'
